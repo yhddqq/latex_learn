@@ -1,0 +1,192 @@
+% 12字体大小，a4纸，单面打印
+\documentclass[12pt,a4paper,oneside]{ctexart}
+
+% 导言区
+% 加载宏包，数学公式包
+\usepackage{amsmath,amsthm,amssymb,graphicx}
+% \usepackage{ctex}
+% 加载超链接宏包hyperref，并进行相关设置
+\usepackage[bookmarks=true,colorlinks,citecolor=blue,linkcolor=red]{hyperref}
+\usepackage{graphicx}
+% latex默认页边距如果很大，用geometry宏包可以显示更多内容
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3.18cm}
+% 加粗公式用bm宏包，这样可以保留公式的斜体
+\usepackage{bm}
+% 设置页边距
+\linespread{1.5}
+% 设置页码的数字字体:aiph为小写字母，Aiph为大写字母，Roman为大写罗马数字，arabic为默认阿拉伯数字
+\pagenumbering{arabic}
+% 设置页码从0开始
+\setcounter{page}{0}
+% 加入定理环境：{theorem}是环境的名称，{定理}设置了该环境显示的名称是“定理”，[section]的作用是让theorem环境在每个section中单独编号
+\newtheorem{theorem}{定理}[section]
+% 可以建立新的环境，如果要让新的环境和theorem环境一起计数
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{example}[theorem]{例}
+\newtheorem{proposition}[theorem]{命题}
+
+
+\title{这是一个\LaTeX 模板}
+\author{洛尘}
+\date{\today}
+
+
+% 正文区，真正的文章内容，所见所得部分
+\begin{document}
+
+% \begin{titlepage}
+    
+% \end{titlepage}
+
+% 将导言区的标题，作者，日期等部分显示
+\maketitle
+
+% 在指定位置生成目录
+\tableofcontents
+
+\begin{abstract}
+    摘要内容
+\end{abstract}
+
+正文内容：
+第一段，hello，world
+此处会和上面一行接上
+
+第二段：注意，需要和上面空一行
+
+\newpage
+这是下一页的内容：hello，world，似乎latex还会自动加入页码
+
+\textup{局部特殊字体：直立abcd}
+
+\textit{局部特殊字体：意大利abcd}
+
+\textsl{局部特殊字体：倾斜abcd}
+
+\textsc{局部特殊字体：小型大写abcd}
+
+% 对于ctexart类型的文章(第一行看的出来), 用\section{}以及\subsection{}标记章节
+\section{一级标题}
+nice to me too.
+\subsection{二级标题}
+我的纸飞机呀，飞呀飞
+\subsubsection{三级标题}
+hello,words
+
+\newpage
+插入图片的使用方式：
+\begin{figure}[htbp] % htbp表示自动选择插入图片的最优位置
+    \centering % 设置让图片居中
+    \includegraphics[width=8cm]{pics/雷电将军.jpg} % 这是图片宽度为8cm
+    \caption{图片标题：雷神}
+\end{figure}
+
+\newpage
+插入表格的使用方式：参考https://www.tablesgenerator.com/
+\begin{table}[htbp]
+    \centering 
+    \caption{表格标题}
+    \begin{tabular}{lllll}
+    32  &     & \textbf{fsa} & sa  &     \\
+    543 & fds & f            & d   & fds \\
+    5   & fds & fds          &     & 4.2 \\
+    4   &     & 6.065        & 2.5 &    
+    \end{tabular}
+\end{table}
+
+加入列表，分为
+1.无序列表
+2.有序列表
+3.描述description
+\begin{enumerate}
+    \item[(1)] 这是第一点；
+    \item[(2)] 这是第二点，
+    \item[(3)] 这是第三点。
+\end{enumerate}
+
+加入一条定理：
+\begin{theorem}[定理名称：拉格朗日]
+    定理内容：我想摆烂
+\end{theorem}
+
+试试建立新的环境
+\begin{lemma}[theorem]{引理}
+    这是一个引理
+\end{lemma}
+\begin{example}[theorem]{例}
+    这是一个example
+\end{example}
+\begin{proposition}[theorem]{命题}
+    这是一个命题
+\end{proposition}
+
+\section{数学公式}
+
+数学公式：参考https://www.latexlive.com/
+
+1.行内公式,用$..$输入
+若$a>0$, $b>0$, 则$a+b>0$.
+
+2.行间公式,用$$..$$输入
+若$a>0$, $b>0$,则
+$$
+a+b>0.
+$$
+
+3.如果要在行内使用行间公式，则在前面加入displaystyle
+设$\displaystyle\lim_{n\to\infty}x_n=x$
+
+4.上下标用$x^7$, 下标用$y_7$,  内容多用$x^{abcd2}$, $y_{acsw5d}$.
+
+5.分式: 5分之3, $\dfrac{3}{5}$, 
+为了在分子分母行间输入较小的分式，可用$a^\frac{1}{n}$代替.
+
+6.括号直接用$(...456+85)$输入, 如果括号内的内容高度很大，
+比如出现分数的情况，可以改用$\left(1+a^\frac{1}{n}\right)^n$。
+在中间需要隔开时，使用$\left(a^3\middle|x_6\right)$。
+输入大括号时需要用\{大括号\}, 其中的反斜为转移字符。
+
+7.加粗公式，注意不是文字，只针对公式： \bm{$3^4$}, \bm{$a^4$}, \textsl{\bm{$a^4$}}, \textsl{\bm{$a^x$}}
+
+8.分段函数：
+$$
+f(x)=\begin{cases}
+    x, & x>0, \\
+    -x, & x\leq 0.
+\end{cases}
+$$
+
+9.多行公式：
+$$
+\begin{aligned}
+    a & =b+c \\
+    & =d+e \\
+    & = s+2
+\end{aligned}
+$$
+
+10.行列式和矩阵 bmatrix和pmatrix
+$$
+\begin{bmatrix}
+    a & b \\
+    c & d  
+\end{bmatrix}
+$$
+$$
+\begin{pmatrix}
+    1&2&4&8 \\
+    3&a&9&a \\
+    d&x^2&x&y_5
+\end{pmatrix}
+$$
+$$
+\begin{vmatrix}
+    a&3 \\
+    b&t^3
+\end{vmatrix}
+$$
+
+\end{document}
