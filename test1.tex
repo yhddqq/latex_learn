@@ -1,5 +1,8 @@
-% 12字体大小，a4纸，单面打印
+% 12字体大小，a4纸，单面打印 ctexart 为article的派生，支持中文排版
+% article为文章格式的文档；report为报告格式，用于综述，长篇论文；book为书籍
+% proc为基于article一个简单学术文档模板，slides为幻灯格式文档，minimal为极简模式文档
 \documentclass[12pt,a4paper,oneside]{ctexart}
+% \documentclass[10pt,a4paper,twoide]{ctexart}默认10pt，letterpapaer
 
 % 导言区
 % 加载宏包，数学公式包
@@ -7,13 +10,16 @@
 % \usepackage{ctex}
 % 加载超链接宏包hyperref，并进行相关设置
 \usepackage[bookmarks=true,colorlinks,citecolor=blue,linkcolor=red]{hyperref}
-\usepackage{graphicx}
 % latex默认页边距如果很大，用geometry宏包可以显示更多内容
 \usepackage{geometry}
 \geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3.18cm}
 % 加粗公式用bm宏包，这样可以保留公式的斜体
 \usepackage{bm}
-% 设置页边距
+
+% 只导入某些文件
+\includeonly{filelist}
+
+% 设置行距
 \linespread{1.5}
 % 设置页码的数字字体:aiph为小写字母，Aiph为大写字母，Roman为大写罗马数字，arabic为默认阿拉伯数字
 \pagenumbering{arabic}
@@ -75,6 +81,10 @@ nice to me too.
 我的纸飞机呀，飞呀飞
 \subsubsection{三级标题}
 hello,words
+
+% 导入其他的，input是直接导入，include会换一页
+% \input{test1.tex}
+% \include{test1}
 
 \newpage
 插入图片的使用方式：
